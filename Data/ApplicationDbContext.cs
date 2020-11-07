@@ -21,6 +21,7 @@ namespace Messenger.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Friend>().HasKey(u => new { u.UserOneId, u.UserTwoId });
             modelBuilder.Entity<UserServer>().HasKey(us => new { us.ServerId, us.UserId });
 
