@@ -159,10 +159,6 @@ namespace Messenger.Migrations
                         .HasColumnType("character varying(256)")
                         .HasMaxLength(256);
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -256,7 +252,7 @@ namespace Messenger.Migrations
 
                     b.HasIndex("ServerId");
 
-                    b.ToTable("PublicChat");
+                    b.ToTable("PublicChats");
                 });
 
             modelBuilder.Entity("Messenger.Models.PublicMessage", b =>

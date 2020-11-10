@@ -11,8 +11,6 @@ namespace Messenger.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        [Required]
-        public string Username { get; set; }
 
         public ICollection<PublicMessage> Messages { get; set; }
         public ICollection<UserServer> Servers { get; set; }

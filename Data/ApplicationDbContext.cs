@@ -14,6 +14,8 @@ namespace Messenger.Data
     {
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Server> Servers { get; set; }
+        public DbSet<PublicChat> PublicChats { get; set; }
+
         public ApplicationDbContext(
             DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
