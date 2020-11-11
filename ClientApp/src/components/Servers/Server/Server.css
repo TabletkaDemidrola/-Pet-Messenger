@@ -1,0 +1,21 @@
+.server {
+    margin-top: 15px;
+    position: relative;
+    opacity: 0.4;
+}
+
+.server:hover .server__active,
+.server:hover {
+    opacity: 1;
+}
+
+.server__active {
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    left: -16px;
+    top: 15px;
+    background-color: grey;
+    border-radius: 50%;
+    opacity: 0;
+}

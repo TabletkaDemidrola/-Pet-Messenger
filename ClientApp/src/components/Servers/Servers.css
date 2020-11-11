@@ -1,0 +1,28 @@
+.servers {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 63px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.servers__list {
+    flex: 1;
+    margin: 15px auto;
+}
+
+.servers>.MuiSvgIcon-root {
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    margin: 5px auto;
+    font-size: large;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.servers>.MuiSvgIcon-root:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+}

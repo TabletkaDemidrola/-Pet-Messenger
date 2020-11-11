@@ -1,0 +1,15 @@
+.sidebare {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 270px;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.75);
+}
+
+.sidebare__title {
+    color: white;
+    margin-left: 0.7em;
+    margin-top: 0.7em;
+    height: 5vh;
+    font-weight: 500;
+}
