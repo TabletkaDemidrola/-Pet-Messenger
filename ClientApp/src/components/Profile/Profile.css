@@ -1,0 +1,99 @@
+.profile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 250px;
+    height: 100vh;
+    background-color: rgba(190, 190, 190, 0.5);
+}
+
+.profile-show{
+    animation: hidden-profile 0.5s forwards;
+}
+
+.profile-hidden{
+    animation: show-profile 0.5s forwards;
+}
+
+.profile__avatar {
+    height: 250px;
+    width: 250px;
+}
+
+.profile__info {
+    margin: 20px;
+}
+
+.profile__info>h3 {
+    color: rgb(65, 65, 65);
+    font-weight: 500;
+}
+
+.profile__info>span {
+    color: grey;
+}
+
+.profile__links {
+    margin: 30px 30px 30px 0;
+}
+
+.profile__links>.MuiSvgIcon-root {
+    margin-right: 10px;
+    color: rgb(100, 100, 100);
+}
+
+.profile__linksList>h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(65, 65, 65);
+}
+
+.profile__linksList>p {
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: grey;
+}
+
+.profile__show {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: grey;
+}
+
+.profile__hidden {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: grey;
+}
+
+.profile__show:hover,
+.profile__hidden:hover {
+    cursor: pointer;
+    color: rgb(65, 65, 65);
+}
+
+@keyframes show-profile {
+    0% {
+        opacity: 1;
+        margin-right: -200px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-right: 0;
+    }
+}
+
+@keyframes hidden-profile {
+    0% {
+        opacity: 1;
+        margin-right: 0;
+    }
+
+    100% {
+        opacity: 1;
+        margin-right: -200px;
+    }
+}
