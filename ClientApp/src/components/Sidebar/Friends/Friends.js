@@ -5,12 +5,10 @@ import './Friends.css'
 function Friends() {
     return (
         <div className="friends">
-            <div className="friends__title">
-                <h2>
-                    Friends
-                    <span>82</span>
-                </h2>
-            </div>
+            <h2 className="friends__title">
+                Friends
+                <span>82</span>
+            </h2>
             <div className="friends__list">
                 <Friend />
                 <Friend />

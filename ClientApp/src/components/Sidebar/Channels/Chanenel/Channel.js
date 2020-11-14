@@ -3,9 +3,7 @@ import './Channel.css'
 
 function Channel() {
     return (
-        <div className="channel">
-            <h3><span>#</span>general</h3>
-        </div>
+        <h3 className="channel"><span>#</span>general</h3>
     )
 }
 

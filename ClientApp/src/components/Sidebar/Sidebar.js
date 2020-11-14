@@ -1,16 +1,16 @@
 import React from 'react'
 import Channels from './Channels/Channels'
 import Friends from './Friends/Friends'
-import './Sidebare.css'
+import './Sidebar.css'
 
-function Sidebare() {
+function Sidebar() {
     return (
-        <div className="sidebare">
-            <h2 className="sidebare__title">Server Name</h2>
+        <div className="sidebar">
+            <h2 className="sidebar__title">Server Name</h2>
             <Channels />
             <Friends />
         </div>
     )
 }
 
-export default Sidebare
+export default Sidebar

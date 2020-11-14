@@ -1,6 +1,6 @@
 import React from 'react'
 import Servers from './components/Servers/Servers'
-import Sidebare from './components/Sidebare/Sidebare'
+import Sidebar from './components/Sidebar/Sidebar'
 import Chat from './components/Chat/Chat'
 import Profile from './components/Profile/Profile'
 import Login from './components/Login/Login'
@@ -14,7 +14,7 @@ function App() {
             ?
                 <>
                     <Servers />
-                    <Sidebare />
+                    <Sidebar />
                     <Chat />
                     <Profile /> 
                 </>

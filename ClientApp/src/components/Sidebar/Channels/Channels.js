@@ -5,12 +5,10 @@ import './Channels.css'
 function Channels() {
     return (
         <div className="channels">
-            <div className="channels__title">
-                <h2>
-                    Channels
-                    <span>11</span>
-                </h2>
-            </div>
+            <h2 className="channels__title">
+                Channels
+                <span>11</span>
+            </h2>
             <div className="channels__list">
                 <Channel />
                 <Channel />

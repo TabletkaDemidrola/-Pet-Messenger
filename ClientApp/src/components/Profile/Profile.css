@@ -33,22 +33,22 @@
     color: grey;
 }
 
-.profile__links {
+.profile__socials {
     margin: 30px 30px 30px 0;
 }
 
-.profile__links>.MuiSvgIcon-root {
+.profile__socials>.MuiSvgIcon-root {
     margin-right: 10px;
     color: rgb(100, 100, 100);
 }
 
-.profile__linksList>h4 {
+.profile__links>h4 {
     font-size: 16px;
     font-weight: 500;
     color: rgb(65, 65, 65);
 }
 
-.profile__linksList>p {
+.profile__links>p {
     margin-bottom: 20px;
     font-weight: 400;
     color: grey;

@@ -6,7 +6,7 @@ function Server() {
     return (
         <div className="server">
             <div className="server__active"></div>
-            <Avatar>H</Avatar>
+            <Avatar src="" alt="">H</Avatar>
         </div>
     )
 }

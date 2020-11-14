@@ -13,21 +13,21 @@ function Profile() {
 
     return (
         <div 
-            className={on({"profile-show": profileVisible, "profile-hidden": !profileVisible}, "profile")} 
-            >
+            className={on( {"profile-show": profileVisible, 
+                            "profile-hidden": !profileVisible}, "profile")}>
             <img 
                 className="profile__avatar"
                 src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" />
             <div className="profile__info">
                 <h3>User Name</h3>
                 <span>User Status</span> 
-                <div className="profile__links">
+                <div className="profile__socials">
                     <FacebookIcon />
                     <TwitterIcon />
                     <InstagramIcon />
                     <LinkedInIcon />
                 </div>
-                <div className="profile__linksList">
+                <div className="profile__links">
                     <h4>User name</h4>
                     <p>@user_name</p>
                     <h4>Email</h4>

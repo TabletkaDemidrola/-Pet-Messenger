@@ -5,7 +5,7 @@ import { Avatar } from '@material-ui/core'
 function Friend() {
     return (
         <div className="friend">
-            <div className="friend__status online"></div>
+            <div className="friend__status friend__status--online"></div>
             <Avatar />
             <h4 className="friend__name">Friend Name</h4>
         </div>

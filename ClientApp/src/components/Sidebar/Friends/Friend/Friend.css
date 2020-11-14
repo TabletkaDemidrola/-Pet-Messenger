@@ -7,12 +7,15 @@
     height: 8px;
     width: 8px;
     margin: auto 8px;
-    background-color: grey;
     border-radius: 50%;
 }
 
-.online {
+.friend__status--online {
     background-color: rgb(29, 202, 29);
+}
+
+.friend__status--offline {
+    background-color: rgb(128, 128, 128);
 }
 
 .friend__name {
