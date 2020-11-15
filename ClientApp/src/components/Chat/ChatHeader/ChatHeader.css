@@ -1,0 +1,45 @@
+.chatHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0 18px;
+    border-bottom: 2px solid rgb(220, 220, 220);
+}
+
+.chatHeader__left {
+    margin-left: 20px;
+}
+
+.chatHeader__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0.3;
+    color: rgb(180, 180, 180);
+}
+
+.chatHeader__right>.MuiSvgIcon-root {
+    margin: auto 10px;
+    cursor: pointer;
+}
+
+.chatHeader__search {
+    display: flex;
+    align-items: center;
+    color: rgb(180, 180, 180);
+    padding: 8px 13px 8px 18px ;
+    width: 300px;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 8px;
+    margin: auto 10px;
+}
+
+.chatHeader__search>input {
+    flex: 1;
+    background-color: transparent;
+    outline-width: 0;/*толщина контура, та самая синяя обводка*/
+    border: none;
+    color: rgb(180, 180, 180);
+    font-weight: 300;
+    font-size: 16px;
+}
