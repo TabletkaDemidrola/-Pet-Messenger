@@ -2,11 +2,14 @@ import React from 'react'
 import './Server.css'
 import { Avatar } from '@material-ui/core'
 
-function Server() {
+function Server(props) {
     return (
         <div className="server">
             <div className="server__active"></div>
-            <Avatar src="" alt="">H</Avatar>
+            {props.homePage
+                ? <Avatar src="" alt="">H</Avatar>
+                : <Avatar src="" alt="">SC</Avatar>
+            }
         </div>
     )
 }

@@ -6,3 +6,13 @@
     align-items: center;
     background-color: rgb(241, 241, 241);
 }
+
+.main-content {
+    height: 100vh;
+    width: 100vw;
+}
+
+ul,
+li {
+    list-style: none;
+}
