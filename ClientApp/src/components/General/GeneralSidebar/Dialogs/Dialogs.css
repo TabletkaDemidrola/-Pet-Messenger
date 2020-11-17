@@ -1,0 +1,18 @@
+.dialogs {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1em;
+    height: 95vh;
+}
+
+.dialogs__title {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: grey;
+    font-weight: 400;
+}
+
+.dialogs__list a {
+    text-decoration: none;
+}

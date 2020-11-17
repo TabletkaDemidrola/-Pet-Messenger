@@ -6,8 +6,8 @@ function Server(props) {
     return (
         <div className="server">
             <div className="server__active"></div>
-            {props.homePage
-                ? <Avatar src="" alt="">H</Avatar>
+            {props.generalPage
+                ? <Avatar src="" alt="">G</Avatar>
                 : <Avatar src="" alt="">SC</Avatar>
             }
         </div>

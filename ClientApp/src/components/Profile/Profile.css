@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    flex-basis: 250px;
+    width: 250px;
     height: 100vh;
     background-color: rgba(190, 190, 190, 0.5);
 }

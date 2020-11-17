@@ -10,7 +10,7 @@ function Servers() {
         <div className="servers">
             <nav className="servers__list">
                 <ul className="servers__items">
-                    <li className="servers__item"><NavLink to='/home'><Server homePage='true'/></NavLink></li>
+                    <li className="servers__item"><NavLink to='/general/friends'><Server generalPage='true'/></NavLink></li>
                     <li className="servers__item"><NavLink to='/server-chat'><Server /></NavLink></li>
                     <li className="servers__item"><NavLink to='/server-chat'><Server /></NavLink></li>
                     <li className="servers__item"><NavLink to='/server-chat'><Server /></NavLink></li>

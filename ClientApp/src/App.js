@@ -1,7 +1,7 @@
 import React from 'react'
 import Servers from './components/Servers/Servers'
 import Profile from './components/Profile/Profile'
-import Home from './components/Home/Home'
+import General from './components/General/General'
 import ServerChat from './components/ServerChat/ServerChat'
 import Login from './components/Login/Login'
 import './App.css'
@@ -16,10 +16,10 @@ function App() {
                     ?   <>
                             <Servers />
                             <main className="main-content">
-                                <Route exact path='/' render={() => <Redirect to={'/home'} />} />
-                                <Route path='/home' render={() => <Home />} />
+                                <Route exact path='/' render={() => <Redirect to={'/general'} />} />
+                                <Route path='/general' render={() => <General />} />
                                 <Route path='/server-chat' render={() => <ServerChat />} />
-                                {/* <Route path='/login' render={() => <Redirect to={'/home'} />} /> */}
+                                {/* <Route path='/login' render={() => <Redirect to={'/general'} />} /> */}
                             </main>
                             <Profile /> 
                         </>

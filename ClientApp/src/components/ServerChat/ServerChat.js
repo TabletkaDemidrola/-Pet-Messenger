@@ -1,12 +1,12 @@
 import React from 'react'
-import Sidebar from './Sidebar/Sidebar'
-import Chat from './Chat/Chat'
+import ServerSidebar from './ServerSidebar/ServerSidebar'
+import Chat from '../Chat/Chat'
 import './ServerChat.css'
 
 function ServerChat() {
     return (
         <div className="server-chat">
-            <Sidebar />
+            <ServerSidebar />
             <Chat />
         </div>
     )

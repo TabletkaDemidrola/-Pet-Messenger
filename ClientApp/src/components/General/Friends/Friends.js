@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Home() {
+function Friends() {
     return (
         <div>
-            <h1>Home</h1>
+            Friends list
         </div>
     )
 }
 
-export default Home
+export default Friends
