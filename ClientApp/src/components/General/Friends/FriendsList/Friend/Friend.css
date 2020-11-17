@@ -1,5 +1,6 @@
 .friend {
     display: flex;
+    align-items: center;
     padding: 7px 0;
 }
 
@@ -25,4 +26,14 @@
     margin-left: 10px;
     font-size: large;
     font-weight: 400;
+}
+
+.friend__send {
+    color: rgb(185, 185, 185);
+    margin-right: 15px;
+}
+
+.friend__send:hover{
+    color: rgb(160, 160, 160);
+    cursor: pointer;
 }

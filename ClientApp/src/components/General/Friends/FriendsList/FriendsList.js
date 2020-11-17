@@ -6,11 +6,21 @@ function FriendsList() {
     return (
         <div className="friends-list">
             <ul className="friends-list__inner">
-                <li className="friends-list__item"><Friend /></li>
-                <li className="friends-list__item"><Friend /></li>
-                <li className="friends-list__item"><Friend /></li>
-                <li className="friends-list__item"><Friend /></li>
-                <li className="friends-list__item"><Friend /></li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
             </ul>
         </div>
         
