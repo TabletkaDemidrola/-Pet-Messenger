@@ -10,13 +10,8 @@ namespace Messenger.Models
 {
     public class Account : IdentityUser
     {
-        [Required]
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
-        public Account()
-        {
-            ApplicationUser = new ApplicationUser();
-        }
     }
 }

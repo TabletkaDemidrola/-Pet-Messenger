@@ -146,7 +146,6 @@ namespace Messenger.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("ApplicationUserId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -506,9 +505,7 @@ namespace Messenger.Migrations
                 {
                     b.HasOne("Messenger.Models.ApplicationUser", "ApplicationUser")
                         .WithOne("Account")
-                        .HasForeignKey("Messenger.Models.Account", "ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Messenger.Models.Account", "ApplicationUserId");
 
                     b.Navigation("ApplicationUser");
                 });

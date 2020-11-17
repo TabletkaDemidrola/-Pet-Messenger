@@ -11,6 +11,7 @@ using Messenger.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Messenger
 {
@@ -34,10 +35,16 @@ namespace Messenger
                 {
                     options.SignIn.RequireConfirmedAccount = true;
                     options.User.RequireUniqueEmail = true;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequiredLength = 8;
+                    options.Password.RequiredUniqueChars = 4;
+                    options.SignIn.RequireConfirmedEmail = true;
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddIdentityServer()
+            services.AddIdentityServer(config => { 
+                //TO DO
+            })
                 .AddApiAuthorization<Account, ApplicationDbContext>();
 
             services.AddAuthentication()
@@ -46,10 +53,13 @@ namespace Messenger
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
+
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/build";
+                configuration.RootPath = "ClientAppAuth/build";
             });
         }
 
@@ -76,6 +86,8 @@ namespace Messenger
             app.UseAuthentication();
             app.UseIdentityServer();
             app.UseAuthorization();
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -86,7 +98,7 @@ namespace Messenger
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "ClientAppAuth";
 
                 if (env.IsDevelopment())
                 {
