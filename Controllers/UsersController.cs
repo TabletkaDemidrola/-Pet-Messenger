@@ -34,7 +34,8 @@ namespace Messenger.Controllers
         public async Task<ActionResult<ApplicationUser>> GetUser(string username)
         {
             var user = await _context.Users
-                .Where(u => u.UserName == username)
+                .Include(Acc => Acc.Account)
+                .Where(u => u.Account.UserName == username)
                 .FirstOrDefaultAsync();
 
             if (user == null)

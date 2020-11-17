@@ -16,11 +16,11 @@ namespace Messenger.Models
         public DateTime CreatingTime = DateTime.Now;
 
         public ICollection<PublicChat> Chats { get; set; }
-        public ICollection<UserServer> Users { get; set; }
+        public ICollection<ApplicationUser> Users { get; set; }
 
         public Server()
         {
-            Users = new List<UserServer>();
+            Users = new List<ApplicationUser>();
             Chats = new List<PublicChat>();
         }
     }
