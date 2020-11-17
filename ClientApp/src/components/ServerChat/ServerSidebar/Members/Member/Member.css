@@ -1,24 +1,24 @@
-.friend {
+.member {
     display: flex;
     padding: 7px 0;
 }
 
-.friend__status {
+.member__status {
     height: 8px;
     width: 8px;
     margin: auto 8px;
     border-radius: 50%;
 }
 
-.friend__status--online {
+.member__status--online {
     background-color: rgb(29, 202, 29);
 }
 
-.friend__status--offline {
+.member__status--offline {
     background-color: rgb(128, 128, 128);
 }
 
-.friend__name {
+.member__name {
     display: flex;
     align-items: center;
     flex: 1;

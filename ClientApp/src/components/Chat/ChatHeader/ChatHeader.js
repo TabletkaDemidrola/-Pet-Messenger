@@ -7,9 +7,9 @@ import SearchIcon from '@material-ui/icons/Search'
 function ChatHeader() {
     return (
         <div className="chat-header">
-            <div className="chat-header__left">
-                <h2><span>#</span>general</h2>
-            </div>
+            <h2 className="chat-header__left">
+                <span>#</span>general
+            </h2>
             <div className="chat-header__right">
                 <div className="chat-header__search">
                     <input placeholder="Search..." />

@@ -1,6 +1,6 @@
 import React from 'react'
 import Channels from './Channels/Channels'
-import Friends from './Friends/Friends'
+import Members from './Members/Members'
 import './ServerSidebar.css'
 
 function ServerSidebar() {
@@ -8,7 +8,7 @@ function ServerSidebar() {
         <div className="server-sidebar">
             <h2 className="server-sidebar__title">Server Name</h2>
             <Channels />
-            <Friends />
+            <Members />
         </div>
     )
 }

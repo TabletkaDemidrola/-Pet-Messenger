@@ -17,7 +17,8 @@ function Profile() {
                             "profile-hidden": !profileVisible}, "profile")}>
             <img 
                 className="profile__avatar"
-                src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png" />
+                src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                alt="" />
             <div className="profile__info">
                 <h3>User Name</h3>
                 <span>User Status</span> 

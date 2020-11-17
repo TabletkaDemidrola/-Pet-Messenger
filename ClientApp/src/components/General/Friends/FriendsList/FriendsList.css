@@ -1,0 +1,12 @@
+.friends-list__inner {
+    padding: 0 20px;
+}
+
+.friends-list__item + .friends-list__item{
+    margin-top: 4px;
+}
+
+.friends-list__item:hover {
+    border-radius: 10px;
+    background-color: rgba(204, 204, 204, 0.3);
+}

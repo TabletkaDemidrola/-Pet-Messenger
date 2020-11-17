@@ -3,7 +3,7 @@ import Chat from '../Chat/Chat'
 import GeneralSidebar from './GeneralSidebar/GeneralSidebar'
 import Friends from './Friends/Friends'
 import './General.css'
-import { BrowserRouter, Redirect, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 function General() {
     return (

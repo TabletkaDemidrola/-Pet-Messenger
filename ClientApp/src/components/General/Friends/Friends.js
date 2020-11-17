@@ -1,9 +1,13 @@
 import React from 'react'
+import FriendsHeader from './FriendsHeader/FriendsHeader'
+import FriendsList from './FriendsList/FriendsList'
+import './Friends.css'
 
 function Friends() {
     return (
-        <div>
-            Friends list
+        <div className="friends">
+            <FriendsHeader />
+            <FriendsList />
         </div>
     )
 }
