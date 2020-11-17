@@ -19,6 +19,7 @@ function App() {
                                 <Route exact path='/' render={() => <Redirect to={'/general'} />} />
                                 <Route path='/general' render={() => <General />} />
                                 <Route path='/server-chat' render={() => <ServerChat />} />
+                                <Route render={() => <h1>Not Found Page</h1> } />
                                 {/* <Route path='/login' render={() => <Redirect to={'/general'} />} /> */}
                             </main>
                             <Profile /> 

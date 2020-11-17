@@ -23,7 +23,6 @@ function FriendsList() {
                 </li>
             </ul>
         </div>
-        
     )
 }
 
