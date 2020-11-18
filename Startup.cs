@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using System;
 
 namespace Messenger
 {
@@ -33,12 +34,16 @@ namespace Messenger
 
             services.AddDefaultIdentity<Account>(options =>
                 {
+                    options.SignIn.RequireConfirmedEmail = true;
                     options.SignIn.RequireConfirmedAccount = true;
+
                     options.User.RequireUniqueEmail = true;
+
+                    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+
                     options.Password.RequireNonAlphanumeric = false;
                     options.Password.RequiredLength = 8;
                     options.Password.RequiredUniqueChars = 4;
-                    options.SignIn.RequireConfirmedEmail = true;
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
@@ -59,7 +64,7 @@ namespace Messenger
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientAppAuth/build";
+                configuration.RootPath = "ClientApp/build";
             });
         }
 
@@ -98,7 +103,7 @@ namespace Messenger
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientAppAuth";
+                spa.Options.SourcePath = "ClientApp";
 
                 if (env.IsDevelopment())
                 {

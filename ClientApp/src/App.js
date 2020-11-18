@@ -1,30 +1,23 @@
-import React from 'react'
-import Servers from './components/Servers/Servers'
-import Sidebare from './components/Sidebare/Sidebare'
-import Chat from './components/Chat/Chat'
-import Profile from './components/Profile/Profile'
-import Login from './components/Login/Login'
-import './App.css'
+import React, { Component } from 'react';
+import { Route } from 'react-router';
+import { Layout } from './components/Layout';
+import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
+import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
+import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
+import Main from './components/Main';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
-    const user = false
-    return (
-        <div className="app">
-            {!user 
-            ?
-                <>
-                    <Servers />
-                    <Sidebare />
-                    <Chat />
-                    <Profile /> 
-                </>
-            :
-                <>
-                    <Login />
-                </>
-            }
-        </div>
-    )
+export default class App extends Component {
+    static displayName = App.name;
+
+    render() {
+        return (
+            <BrowserRouter>
+                <Layout>
+                    <AuthorizeRoute path='/App' component={Main} />
+                    <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
+                </Layout>
+            </BrowserRouter>
+        );
+    }
 }
-
-export default App
