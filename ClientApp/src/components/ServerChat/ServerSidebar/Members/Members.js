@@ -9,12 +9,24 @@ function Members() {
                 Members
                 <span>82</span>
             </h2>
-            <div className="members__list">
-                <Member />
-                <Member />
-                <Member />
-                <Member />
-                <Member />
+            <div className="members__list-wrapper">
+                <div className="members__list">
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                    <Member />
+                </div>
             </div>
         </div>
     )

@@ -9,12 +9,29 @@ function Channels() {
                 Channels
                 <span>11</span>
             </h2>
-            <div className="channels__list">
-                <Channel />
-                <Channel />
-                <Channel />
-                <Channel />
-                <Channel />
+            <div className="channels__list-wrapper">
+                <div className="channels__list">
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                    <Channel />
+                </div>
             </div>
         </div>
     )

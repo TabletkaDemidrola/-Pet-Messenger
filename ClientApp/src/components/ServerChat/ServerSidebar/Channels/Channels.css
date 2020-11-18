@@ -3,8 +3,28 @@
     flex-direction: column;
     position: relative;
     margin: 1em;
-    height: 48vh;
+    height: 40vh;
 }
+
+.channels__list-wrapper {
+    overflow-y: scroll;
+    visibility: hidden;
+}
+
+.channels__list,
+.channels__list-wrapper:hover,
+.channels__list-wrapper:focus {
+    visibility: visible;
+}
+
+.channels__list-wrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+.channels__list-wrapper::-webkit-scrollbar-thumb  {
+    background-color: grey;
+    border-radius: 2px;
+} 
 
 .channels__title {
     margin-bottom: 10px;
