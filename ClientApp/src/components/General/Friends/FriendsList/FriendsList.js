@@ -21,6 +21,45 @@ function FriendsList() {
                 <li className="friends-list__item">
                     <Friend />
                 </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
+                <li className="friends-list__item">
+                    <Friend />
+                </li>
             </ul>
         </div>
     )
