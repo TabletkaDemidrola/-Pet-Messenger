@@ -28,12 +28,16 @@
     font-weight: 400;
 }
 
-.friend__send {
+.friend__action {
     color: rgb(185, 185, 185);
+    margin-right: 25px;
+}
+
+.friend__action + .friend__action {
     margin-right: 15px;
 }
 
-.friend__send:hover{
+.friend__action:hover{
     color: rgb(160, 160, 160);
     cursor: pointer;
 }
