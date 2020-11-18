@@ -13,6 +13,27 @@
     font-weight: 400;
 }
 
+.dialogs__list-wrapper {
+    overflow-y: scroll;
+    visibility: hidden;
+    margin-bottom: 20px;
+}
+
+.dialogs__list,
+.dialogs__list-wrapper:hover,
+.dialogs__list-wrapper:focus {
+    visibility: visible;
+}
+
+.dialogs__list-wrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+.dialogs__list-wrapper::-webkit-scrollbar-thumb  {
+    background-color: grey;
+    border-radius: 2px;
+} 
+
 .dialogs__item {
     display: flex;
     align-items: center;
