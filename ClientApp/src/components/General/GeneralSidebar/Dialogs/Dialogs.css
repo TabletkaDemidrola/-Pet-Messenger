@@ -14,9 +14,9 @@
 }
 
 .dialogs__list-wrapper {
+    height: 88vh;
     overflow-y: scroll;
     visibility: hidden;
-    margin-bottom: 20px;
 }
 
 .dialogs__list,
