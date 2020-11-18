@@ -14,6 +14,22 @@ function Chat() {
                 <Message />
                 <Message />
                 <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
+                <Message />
             </div>
             <div className="chat__input">
                 <form>

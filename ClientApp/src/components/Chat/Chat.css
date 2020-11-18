@@ -8,7 +8,7 @@
 
 .chat__messages {
     flex: 1;
-    overflow: scroll;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column-reverse;
     margin: 12px;
@@ -17,7 +17,17 @@
 }
 
 .chat__messages::-webkit-scrollbar {
-    display: none;
+    width: 8px;
+}
+
+.chat__messages::-webkit-scrollbar-track {
+    background-color: rgb(240, 240, 240);
+    border-radius: 4px;
+}
+
+.chat__messages::-webkit-scrollbar-thumb {
+    background-color: rgba(190, 190, 190, 0.5);
+    border-radius: 4px;
 }
 
 .chat__input {
