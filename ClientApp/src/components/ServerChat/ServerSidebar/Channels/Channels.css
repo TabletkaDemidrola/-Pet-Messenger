@@ -26,6 +26,36 @@
     border-radius: 2px;
 } 
 
+.channels__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    color:grey;
+    margin: 5px 0;
+}
+
+.channels__item:hover .channels__settings>.MuiSvgIcon-root{
+    visibility: visible;
+}
+
+.channels__item:hover {
+    background-color: rgba(130, 130, 130, 0.3);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.channels__settings>.MuiSvgIcon-root {
+    visibility: hidden;
+    margin: 0 4px;
+    font-size: large;
+}
+
+.channels__settings>.MuiSvgIcon-root:hover {
+    cursor: pointer;
+}
+
 .channels__title {
     margin-bottom: 10px;
     text-transform: uppercase;
