@@ -13,7 +13,7 @@ namespace Messenger.Models
         public string ChatId { get; set; }
         [Required]
         public string Name { get; set; }
-        public DateTime CreatingTime = DateTime.Now;
+        public DateTime CreatingTime { get; init; }
 
         public string ServerId { get; set; }
         [ForeignKey("ServerId")]
@@ -24,6 +24,7 @@ namespace Messenger.Models
         public PublicChat()
         {
             Messages = new List<PublicMessage>();
+            CreatingTime = DateTime.Now;
         }
     }
 }

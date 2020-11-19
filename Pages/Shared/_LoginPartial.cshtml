@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Messenger.Models;
-@inject SignInManager<Account> SignInManager
-@inject UserManager<Account> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     string returnUrl = null;

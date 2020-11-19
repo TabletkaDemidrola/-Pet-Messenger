@@ -32,7 +32,7 @@ namespace Messenger
                 options.UseNpgsql(
                     Configuration.GetConnectionString("IdentityConnection")));
 
-            services.AddDefaultIdentity<Account>(options =>
+            services.AddDefaultIdentity<ApplicationUser>(options =>
                 {
                     options.SignIn.RequireConfirmedEmail = true;
                     options.SignIn.RequireConfirmedAccount = true;
@@ -50,7 +50,7 @@ namespace Messenger
             services.AddIdentityServer(config => { 
                 //TO DO
             })
-                .AddApiAuthorization<Account, ApplicationDbContext>();
+                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();

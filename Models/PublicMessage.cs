@@ -21,7 +21,7 @@ namespace Messenger.Models
 
         public string UserId { get; set; }
         [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }
+        public User User { get; set; }
 
         public PublicMessage()
         {

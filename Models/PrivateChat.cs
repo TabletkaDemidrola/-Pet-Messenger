@@ -13,11 +13,11 @@ namespace Messenger.Models
         public string ChatId { get; set; }
         public string UserOneId { get; set; }
         [ForeignKey("UserOneId")]
-        public ApplicationUser UserOne { get; set; }
+        public User UserOne { get; set; }
 
         public string UserTwoId { get; set; }
         [ForeignKey("UserTwoId")]
-        public ApplicationUser UserTwo { get; set; }
+        public User UserTwo { get; set; }
 
         public ICollection<PrivateMessage> Messages { get; set; }
 

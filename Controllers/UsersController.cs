@@ -25,18 +25,18 @@ namespace Messenger.Controllers
 
         // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
         }
 
         // GET: api/Users/username
         [HttpGet("{username}")]
-        public async Task<ActionResult<ApplicationUser>> GetUser(string username)
+        public async Task<ActionResult<User>> GetUser(string username)
         {
             var user = await _context.Users
-                .Include(Acc => Acc.Account)
-                .Where(u => u.Account.UserName == username)
+                .Include(Acc => Acc.ApplicationUser)
+                .Where(u => u.ApplicationUser.UserName == username)
                 .FirstOrDefaultAsync();
 
             if (user == null)
@@ -49,7 +49,7 @@ namespace Messenger.Controllers
 
         // PUT: api/Users/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(string id, ApplicationUser user)
+        public async Task<IActionResult> PutUser(string id, User user)
         {
             if (id != user.Id)
             {
@@ -79,7 +79,7 @@ namespace Messenger.Controllers
 
         // POST: api/Users
         [HttpPost]
-        public async Task<ActionResult<ApplicationUser>> PostUser(ApplicationUser user)
+        public async Task<ActionResult<User>> PostUser(User user)
         {
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
@@ -89,7 +89,7 @@ namespace Messenger.Controllers
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<ApplicationUser>> DeleteUser(int id)
+        public async Task<ActionResult<User>> DeleteUser(int id)
         {
             var user = await _context.Users.FindAsync(id);
             if (user == null)
