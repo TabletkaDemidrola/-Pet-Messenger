@@ -36,6 +36,7 @@ function Profile() {
                     <h4>Skype</h4>
                     <p>skype_name</p>
                 </div>
+                <button className="profile__btn">Log out</button>
                 {profileVisible ?
                     <ArrowBackIosIcon 
                         onClick={() => setProfileVisible(!profileVisible)} 
