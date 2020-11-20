@@ -20,12 +20,6 @@ function Members() {
                     <Member />
                     <Member />
                     <Member />
-                    <Member />
-                    <Member />
-                    <Member />
-                    <Member />
-                    <Member />
-                    <Member />
                 </div>
             </div>
         </div>

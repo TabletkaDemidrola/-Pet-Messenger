@@ -25,30 +25,40 @@
 }
 
 .profile__info>h3 {
+    display: flex;
+    justify-content: flex-end;
     color: rgb(65, 65, 65);
     font-weight: 500;
 }
 
 .profile__info>span {
+    display: flex;
+    justify-content: flex-end;
     color: grey;
 }
 
 .profile__socials {
-    margin: 30px 30px 30px 0;
+    display: flex;
+    justify-content: flex-end;
+    margin: 30px 0;
 }
 
 .profile__socials>.MuiSvgIcon-root {
-    margin-right: 10px;
+    margin-left: 10px;
     color: rgb(100, 100, 100);
 }
 
 .profile__links>h4 {
+    display: flex;
+    justify-content: flex-end;
     font-size: 16px;
     font-weight: 500;
     color: rgb(65, 65, 65);
 }
 
 .profile__links>p {
+    display: flex;
+    justify-content: flex-end;
     margin-bottom: 20px;
     font-weight: 400;
     color: grey;
