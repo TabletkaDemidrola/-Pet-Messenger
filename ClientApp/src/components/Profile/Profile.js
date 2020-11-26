@@ -6,7 +6,9 @@ import TwitterIcon from '@material-ui/icons/Twitter'
 import InstagramIcon from '@material-ui/icons/Instagram'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom'
+import Tooltip from '@material-ui/core/Tooltip'
 
 function Profile() {
     const [profileVisible, setProfileVisible] = useState(false)
@@ -36,7 +38,9 @@ function Profile() {
                     <h4>Skype</h4>
                     <p>skype_name</p>
                 </div>
-                <button className="profile__btn">Log out</button>
+                <Tooltip title="Log out" arrow placement="top">
+                    <MeetingRoomIcon className="profile__exit" />
+                </Tooltip>
                 {profileVisible ?
                     <ArrowBackIosIcon 
                         onClick={() => setProfileVisible(!profileVisible)} 

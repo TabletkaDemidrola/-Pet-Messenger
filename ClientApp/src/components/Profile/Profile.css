@@ -64,18 +64,19 @@
     color: grey;
 }
 
-.profile__btn {
+.profile__exit {
     position: absolute;
     bottom: 15px;
     right: 15px;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-size: larger;
-    font-weight: 500;
-    border-radius: 15px;
-    border: 1px solid rgba(94, 94, 94, 0.753);
+    margin: 9px 10px;
+    /* font-size: inherit; */
+    /* font-weight: 500; */
+    color: grey;
+}
+
+.profile__exit:hover {
     color: rgb(65, 65, 65);
-    background-color: rgba(111, 192, 238, 0.712);
+    cursor: pointer;
 }
 
 .profile__show {
