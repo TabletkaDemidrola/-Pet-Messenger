@@ -1,36 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ChatHeader from './ChatHeader/ChatHeader'
-import Message from './Message/Message'
+import UserProfile from '../UserProfile/UserProfile'
 import './Chat.css'
+import Message from './Message/Message'
 import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined'
 import AttachFileIcon from '@material-ui/icons/AttachFile'
 
-function Chat() {
+const Chat = (props) => {
+    let [editMode, setEditMode] = useState(false)
+
+    function handleClick() {
+        setEditMode(!editMode)
+    }
+
     return (
         <div className="chat">
             <ChatHeader />
-            <div className="chat__messages">
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-            </div>
+            <ul className="chat__messages">
+                {/* список сообщений через метод '.map' */}
+                <Message handleClick={handleClick}/>
+                <Message handleClick={handleClick}/>
+                <Message handleClick={handleClick}/>
+                <Message handleClick={handleClick}/>
+                <Message handleClick={handleClick}/>
+                <Message handleClick={handleClick}/>
+                <Message handleClick={handleClick}/>
+                <UserProfile editMode={editMode} setEditMode={setEditMode}/>
+            </ul>
             <div className="chat__input">
                 <form>
                     <input placeholder="Message in #general" />
