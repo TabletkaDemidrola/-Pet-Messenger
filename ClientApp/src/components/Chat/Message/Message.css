@@ -1,0 +1,19 @@
+.message {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+}
+
+.message__info {
+    margin-left: 12px;
+}
+
+.message__info>h4 {
+    cursor: default;
+}
+.message__timestamp {
+    color:rgb(180, 180, 180);
+    margin-left: 20px;
+    font-size: small;
+    font-weight: 300;
+}
