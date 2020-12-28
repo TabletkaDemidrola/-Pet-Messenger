@@ -13,7 +13,7 @@ namespace Messenger.Models
         public string ChatId { get; set; }
         [Required]
         public string Name { get; set; }
-        public DateTime CreatingTime { get; init; }
+        public DateTime CreatingTime { get; set; }
 
         public string ServerId { get; set; }
         [ForeignKey("ServerId")]
