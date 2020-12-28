@@ -2,20 +2,20 @@ import React from 'react'
 import './Message.css'
 import { Avatar } from '@material-ui/core'
 
-function Message() {
+function Message(props) {
     return (
-        <div className="message">
-            <Avatar />
+        <li className="message">
+            <Avatar onClick={props.handleClick} />
             <div className="message__info">
                 <h4>
-                    User Name
+                    <span onClick={props.handleClick}>User Name</span>
                     <span className="message__timestamp">
                         data-time
                     </span>
                 </h4>
                 <p>This is a text message</p>
             </div>
-        </div>
+        </li>
     )
 }
 

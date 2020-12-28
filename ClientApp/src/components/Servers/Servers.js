@@ -1,18 +1,23 @@
 import React from 'react'
 import Server from './Server/Server'
 import './Servers.css'
-import AddIcon from '@material-ui/icons/Add';
-import SettingsIcon from '@material-ui/icons/Settings';
+import AddIcon from '@material-ui/icons/Add'
+import SettingsIcon from '@material-ui/icons/Settings'
+import { NavLink } from 'react-router-dom'
 
 function Servers() {
     return (
         <div className="servers">
-            <div className="servers__list">
-                <Server />
-                <Server />
-                <Server />
-                <Server />
-            </div>
+            <nav className="servers__list">
+                <ul className="servers__items">
+                    <li className="servers__item"><NavLink to='/general/friends'><Server generalPage='true'/></NavLink></li>
+                    <li className="servers__item"><NavLink to='/server-chat'><Server /></NavLink></li>
+                    <li className="servers__item"><NavLink to='/server-chat'><Server /></NavLink></li>
+                    <li className="servers__item"><NavLink to='/server-chat'><Server /></NavLink></li>
+                    <li className="servers__item"><NavLink to='/server-chat'><Server /></NavLink></li>
+                    <li className="servers__item"><NavLink to='/server-chat'><Server /></NavLink></li>
+                </ul>
+            </nav>
             <AddIcon />
             <SettingsIcon />
         </div>

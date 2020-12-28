@@ -1,14 +1,21 @@
 .servers {
     display: flex;
     flex-direction: column;
-    flex-basis: 63px;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
 }
 
 .servers__list {
     flex: 1;
-    margin: 15px auto;
+    margin: 15px 12px;
+}
+
+.servers__items {
+    padding: 0;
+}
+
+.servers__item a {
+    text-decoration: none;
 }
 
 .servers>.MuiSvgIcon-root {

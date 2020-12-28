@@ -1,29 +1,32 @@
 import React from 'react'
 import Servers from './components/Servers/Servers'
-import Sidebare from './components/Sidebare/Sidebare'
-import Chat from './components/Chat/Chat'
 import Profile from './components/Profile/Profile'
+import General from './components/General/General'
+import ServerChat from './components/ServerChat/ServerChat'
 import Login from './components/Login/Login'
 import './App.css'
+import { BrowserRouter, Redirect, Route } from 'react-router-dom'
 
 function App() {
-    const user = false
+    const userAuth = true
     return (
-        <div className="app">
-            {!user 
-            ?
-                <>
-                    <Servers />
-                    <Sidebare />
-                    <Chat />
-                    <Profile /> 
-                </>
-            :
-                <>
-                    <Login />
-                </>
-            }
-        </div>
+        <BrowserRouter>
+            <div className="app">
+                {userAuth
+                    ?   <>
+                            <Servers />
+                            <main className="main-content">
+                                <Route exact path='/' render={() => <Redirect to={'/general'} />} />
+                                <Route path='/general' render={() => <General />} />
+                                <Route path='/server-chat' render={() => <ServerChat />} />
+                                <Route render={() => <h1>Not Found Page</h1> } />
+                            </main>
+                            <Profile /> 
+                        </>
+                    :   <Route path='/login' render={() => <Login />} />
+                }
+            </div>
+        </BrowserRouter>
     )
 }
 

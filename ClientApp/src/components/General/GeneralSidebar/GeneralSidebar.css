@@ -1,0 +1,29 @@
+.general-sidebar {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 270px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.general-sidebar__friends {
+    margin-left: 0.7em;
+    margin-top: 0.5em;
+    height: 6vh;
+}
+
+.general-sidebar__friends a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    color: white;
+    font-weight: 500;
+    
+}
+
+.general-sidebar__friends>a>.MuiSvgIcon-root {
+    height: 35px;
+    width: 35px;
+    margin: 0 5px 5px 0;
+    font-size: large;
+}
