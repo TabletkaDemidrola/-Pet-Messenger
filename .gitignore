@@ -232,4 +232,5 @@ _Pvt_Extensions
 ############ NOT STANDART IGNORE ##############
 appsettings.json
 Migrations/
-!ClientApp/node_modules
+ClientApp/node_modules
+ClientAppAuth/node_modules
