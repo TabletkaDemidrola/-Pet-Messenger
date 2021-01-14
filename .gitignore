@@ -233,3 +233,4 @@ _Pvt_Extensions
 appsettings.json
 Migrations/
 ClientAppAuth/
+MailSetting.cs
