@@ -24,31 +24,24 @@ namespace Messenger.Areas.Identity.Pages.Account.Manage
         }
 
         public string Username { get; set; }
-
+        
         [TempData]
         public string StatusMessage { get; set; }
-
+        
         [BindProperty]
         public InputModel Input { get; set; }
 
         public class InputModel
         {
-            [Phone]
-            [Display(Name = "Phone number")]
-            public string PhoneNumber { get; set; }
+            [Display(Name = "User name")]
+            public string Username { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
         {
-            var userName = await _userManager.GetUserNameAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
+            //var userName = await _userManager.GetUserNameAsync(user);
 
-            Username = userName;
-
-            Input = new InputModel
-            {
-                PhoneNumber = phoneNumber
-            };
+            Username = user.ApplicationUsername;
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -70,13 +63,19 @@ namespace Messenger.Areas.Identity.Pages.Account.Manage
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
-
-            if (!ModelState.IsValid)
+            
+            await LoadAsync(user);
+            if (Input.Username != Username)
             {
-                await LoadAsync(user);
-                return Page();
+                user.ApplicationUsername = Input.Username;
+                var setUsernameResult = await _userManager.UpdateAsync(user);
+                if (!setUsernameResult.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set new username";
+                    return RedirectToPage();
+                }
             }
-
+            /*
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
             {
@@ -86,7 +85,7 @@ namespace Messenger.Areas.Identity.Pages.Account.Manage
                     StatusMessage = "Unexpected error when trying to set phone number.";
                     return RedirectToPage();
                 }
-            }
+            }*/
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";

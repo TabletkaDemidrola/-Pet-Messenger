@@ -47,7 +47,8 @@ namespace Messenger
                 })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddIdentityServer(config => { 
+            services.AddIdentityServer(config =>
+            {
                 //TO DO
             })
                 .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();

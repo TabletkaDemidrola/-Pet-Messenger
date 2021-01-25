@@ -14,7 +14,7 @@ export default class App extends Component {
         return (
             <BrowserRouter>
                 <Layout>
-                    <AuthorizeRoute path='/App' component={Main} />
+                    <AuthorizeRoute path='/' component={Main} />
                     <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
                 </Layout>
             </BrowserRouter>

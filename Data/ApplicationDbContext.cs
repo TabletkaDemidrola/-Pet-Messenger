@@ -14,7 +14,6 @@ namespace Messenger.Data
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
         public DbSet<ApplicationUser> Accounts { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Server> Servers { get; set; }
         public DbSet<PublicChat> PublicChats { get; set; }
 
@@ -29,14 +28,8 @@ namespace Messenger.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Friend>().HasKey(u => new { u.UserOneId, u.UserTwoId });
 
-            //One-to-one
-            modelBuilder.Entity<User>()
-                .HasOne(u => u.ApplicationUser)
-                .WithOne(u => u.User)
-                .HasForeignKey("ApplicationUser");
-
             //Many-to-many
-            modelBuilder.Entity<User>()
+            modelBuilder.Entity<ApplicationUser>()
                 .HasMany(s => s.Servers)
                 .WithMany(u => u.Users);
 

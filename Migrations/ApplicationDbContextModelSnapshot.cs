@@ -19,6 +19,21 @@ namespace Messenger.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("ApplicationUserServer", b =>
+                {
+                    b.Property<string>("ServersServerId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UsersId")
+                        .HasColumnType("text");
+
+                    b.HasKey("ServersServerId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("ApplicationUserServer");
+                });
+
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
                 {
                     b.Property<string>("UserCode")
@@ -130,6 +145,9 @@ namespace Messenger.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
 
+                    b.Property<string>("ApplicationUsername")
+                        .HasColumnType("text");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("text");
@@ -140,6 +158,12 @@ namespace Messenger.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("text");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
@@ -170,9 +194,6 @@ namespace Messenger.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("text");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
@@ -185,9 +206,6 @@ namespace Messenger.Migrations
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("AspNetUsers");
                 });
@@ -318,26 +336,6 @@ namespace Messenger.Migrations
                     b.HasKey("ServerId");
 
                     b.ToTable("Servers");
-                });
-
-            modelBuilder.Entity("Messenger.Models.User", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
-
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -474,39 +472,30 @@ namespace Messenger.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("ServerUser", b =>
+            modelBuilder.Entity("ApplicationUserServer", b =>
                 {
-                    b.Property<string>("ServersServerId")
-                        .HasColumnType("text");
+                    b.HasOne("Messenger.Models.Server", null)
+                        .WithMany()
+                        .HasForeignKey("ServersServerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<string>("UsersId")
-                        .HasColumnType("text");
-
-                    b.HasKey("ServersServerId", "UsersId");
-
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("ServerUser");
-                });
-
-            modelBuilder.Entity("Messenger.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("Messenger.Models.User", "User")
-                        .WithOne("ApplicationUser")
-                        .HasForeignKey("Messenger.Models.ApplicationUser", "UserId");
-
-                    b.Navigation("User");
+                    b.HasOne("Messenger.Models.ApplicationUser", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Messenger.Models.Friend", b =>
                 {
-                    b.HasOne("Messenger.Models.User", "UserOne")
+                    b.HasOne("Messenger.Models.ApplicationUser", "UserOne")
                         .WithMany("Friends")
                         .HasForeignKey("UserOneId")
                         .OnDelete(DeleteBehavior.SetNull)
                         .IsRequired();
 
-                    b.HasOne("Messenger.Models.User", "UserTwo")
+                    b.HasOne("Messenger.Models.ApplicationUser", "UserTwo")
                         .WithMany()
                         .HasForeignKey("UserTwoId")
                         .OnDelete(DeleteBehavior.SetNull)
@@ -519,12 +508,12 @@ namespace Messenger.Migrations
 
             modelBuilder.Entity("Messenger.Models.PrivateChat", b =>
                 {
-                    b.HasOne("Messenger.Models.User", "UserOne")
+                    b.HasOne("Messenger.Models.ApplicationUser", "UserOne")
                         .WithMany("PrivateChats")
                         .HasForeignKey("UserOneId")
                         .OnDelete(DeleteBehavior.SetNull);
 
-                    b.HasOne("Messenger.Models.User", "UserTwo")
+                    b.HasOne("Messenger.Models.ApplicationUser", "UserTwo")
                         .WithMany()
                         .HasForeignKey("UserTwoId")
                         .OnDelete(DeleteBehavior.SetNull);
@@ -540,7 +529,7 @@ namespace Messenger.Migrations
                         .WithMany("Messages")
                         .HasForeignKey("ChatId");
 
-                    b.HasOne("Messenger.Models.User", "User")
+                    b.HasOne("Messenger.Models.ApplicationUser", "User")
                         .WithMany("PrivateMessages")
                         .HasForeignKey("UserId");
 
@@ -564,7 +553,7 @@ namespace Messenger.Migrations
                         .WithMany("Messages")
                         .HasForeignKey("ChatId");
 
-                    b.HasOne("Messenger.Models.User", "User")
+                    b.HasOne("Messenger.Models.ApplicationUser", "User")
                         .WithMany("Messages")
                         .HasForeignKey("UserId");
 
@@ -624,19 +613,15 @@ namespace Messenger.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ServerUser", b =>
+            modelBuilder.Entity("Messenger.Models.ApplicationUser", b =>
                 {
-                    b.HasOne("Messenger.Models.Server", null)
-                        .WithMany()
-                        .HasForeignKey("ServersServerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Friends");
 
-                    b.HasOne("Messenger.Models.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Messages");
+
+                    b.Navigation("PrivateChats");
+
+                    b.Navigation("PrivateMessages");
                 });
 
             modelBuilder.Entity("Messenger.Models.PrivateChat", b =>
@@ -652,19 +637,6 @@ namespace Messenger.Migrations
             modelBuilder.Entity("Messenger.Models.Server", b =>
                 {
                     b.Navigation("Chats");
-                });
-
-            modelBuilder.Entity("Messenger.Models.User", b =>
-                {
-                    b.Navigation("ApplicationUser");
-
-                    b.Navigation("Friends");
-
-                    b.Navigation("Messages");
-
-                    b.Navigation("PrivateChats");
-
-                    b.Navigation("PrivateMessages");
                 });
 #pragma warning restore 612, 618
         }
