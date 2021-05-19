@@ -25,31 +25,36 @@ namespace Messenger.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Friend>().HasKey(u => new { u.UserOneId, u.UserTwoId });
-            modelBuilder.Entity<UserServer>().HasKey(us => new { us.ServerId, us.UserId });
 
+            //Many-to-many
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(s => s.Servers)
+                .WithMany(u => u.Users);
+
+            //One-to-many
             modelBuilder.Entity<Friend>()
                 .HasOne(u => u.UserOne)
                 .WithMany(u => u.Friends)
                 .HasForeignKey(u => u.UserOneId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Friend>()
                 .HasOne(u => u.UserTwo)
                 .WithMany()
                 .HasForeignKey(u => u.UserTwoId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<PrivateChat>()
                 .HasOne(u => u.UserOne)
                 .WithMany(u => u.PrivateChats)
                 .HasForeignKey(u => u.UserOneId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<PrivateChat>()
                 .HasOne(u => u.UserTwo)
                 .WithMany()
                 .HasForeignKey(u => u.UserTwoId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
