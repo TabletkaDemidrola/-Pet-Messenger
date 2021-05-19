@@ -29,28 +29,9 @@
   </ItemGroup>
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
-    <Compile Remove="Migrations\**" />
     <Content Remove="$(SpaRoot)**" />
-    <Content Remove="Migrations\**" />
-    <EmbeddedResource Remove="Migrations\**" />
     <None Remove="$(SpaRoot)**" />
-    <None Remove="Migrations\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Migrations\20201116235135_Update_17_11_20_.cs" />
-    <Compile Include="Migrations\20201116235135_Update_17_11_20_.Designer.cs" />
-    <Compile Include="Migrations\20201117003031_Update_17_11_2020.cs" />
-    <Compile Include="Migrations\20201117003031_Update_17_11_2020.Designer.cs" />
-    <Compile Include="Migrations\20201117121055_upd1.cs" />
-    <Compile Include="Migrations\20201117121055_upd1.Designer.cs" />
-    <Compile Include="Migrations\20201119133721_upd_19_11_2020.cs" />
-    <Compile Include="Migrations\20201119133721_upd_19_11_2020.Designer.cs" />
-    <Compile Include="Migrations\20210124230223_Update_25_01_21.cs" />
-    <Compile Include="Migrations\20210124230223_Update_25_01_21.Designer.cs" />
-    <Compile Include="Migrations\20210125001446_Update_25_01_21_v2.cs" />
-    <Compile Include="Migrations\20210125001446_Update_25_01_21_v2.Designer.cs" />
-    <Compile Include="Migrations\ApplicationDbContextModelSnapshot.cs" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
