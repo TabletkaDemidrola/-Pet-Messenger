@@ -1,20 +1,26 @@
 import React from 'react'
 import ChatHeader from './ChatHeader/ChatHeader'
-import Message from './Message/Message'
+import UserProfile from '../UserProfile/UserProfile'
 import './Chat.css'
+import Message from './Message/Message'
 import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined'
 import AttachFileIcon from '@material-ui/icons/AttachFile'
 
-function Chat() {
+const Chat = (props) => {
     return (
         <div className="chat">
             <ChatHeader />
-            <div className="chat__messages">
-                <Message />
-                <Message />
-                <Message />
-                <Message />
-            </div>
+            <ul className="chat__messages">
+                {/* список сообщений через метод '.map' */}
+                <Message handleClick={props.handleClick}/>
+                <Message handleClick={props.handleClick}/>
+                <Message handleClick={props.handleClick}/>
+                <Message handleClick={props.handleClick}/>
+                <Message handleClick={props.handleClick}/>
+                <Message handleClick={props.handleClick}/>
+                <Message handleClick={props.handleClick}/>
+                <UserProfile editMode={props.editMode} setEditMode={props.setEditMode}/>
+            </ul>
             <div className="chat__input">
                 <form>
                     <input placeholder="Message in #general" />

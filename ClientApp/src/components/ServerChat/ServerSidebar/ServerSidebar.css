@@ -1,4 +1,4 @@
-.sidebare {
+.server-sidebar {
     display: flex;
     flex-direction: column;
     flex-basis: 270px;
@@ -6,7 +6,7 @@
     background-color: rgb(0, 0, 0, 0.75);
 }
 
-.sidebare__title {
+.server-sidebar__title {
     color: white;
     margin-left: 0.7em;
     margin-top: 0.7em;

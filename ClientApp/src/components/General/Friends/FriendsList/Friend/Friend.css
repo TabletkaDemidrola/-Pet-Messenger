@@ -1,0 +1,43 @@
+.friend {
+    display: flex;
+    align-items: center;
+    padding: 7px 0;
+}
+
+.friend__status {
+    height: 8px;
+    width: 8px;
+    margin: auto 8px;
+    border-radius: 50%;
+}
+
+.friend__status--online {
+    background-color: rgb(29, 202, 29);
+}
+
+.friend__status--offline {
+    background-color: rgb(128, 128, 128);
+}
+
+.friend__name {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-left: 10px;
+    font-size: large;
+    font-weight: 400;
+}
+
+.friend__action {
+    color: rgb(185, 185, 185);
+    margin-right: 25px;
+}
+
+.friend__action + .friend__action {
+    margin-right: 15px;
+}
+
+.friend__action:hover{
+    color: rgb(160, 160, 160);
+    cursor: pointer;
+}

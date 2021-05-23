@@ -1,21 +1,23 @@
-.friend {
+.dialog {
     display: flex;
-    padding: 7px 0;
 }
 
-.friend__status {
+.dialog__status {
     height: 8px;
     width: 8px;
     margin: auto 8px;
-    background-color: grey;
     border-radius: 50%;
 }
 
-.online {
+.dialog__status--online {
     background-color: rgb(29, 202, 29);
 }
 
-.friend__name {
+.dialog__status--offline {
+    background-color: rgb(128, 128, 128);
+}
+
+.dialog__name {
     display: flex;
     align-items: center;
     flex: 1;

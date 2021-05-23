@@ -14,8 +14,8 @@ function Login() {
                 <LockOutlinedIcon />
                 <input placeholder="Password..." /> 
             </div>
-            <button type="submit">Sign in</button>
-            <button type="submit">Check in</button>
+            <button className="login__btn" type="submit">Sign in</button>
+            <button className="login__btn" type="submit">Check in</button>
         </form>
     )
 }

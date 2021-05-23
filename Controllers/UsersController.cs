@@ -22,6 +22,15 @@ namespace Messenger.Controllers
             _context = context;
         }
 
+        //ВРЕМЕННО
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetUsers()
+        {
+            var users = await _context.Users.OrderBy(u => u.Email).ToListAsync();
+
+            return users;
+        }
+
         // ПРОВЕРИТЬ
         // GET: api/UsersServer/ServerId
         [Route("api/UsersServer/")]  

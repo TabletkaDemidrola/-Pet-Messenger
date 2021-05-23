@@ -1,0 +1,66 @@
+.settings {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, rgb(195, 195, 195) 50%, white 50%);
+    
+}
+
+.settings__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    width: 1000px;
+}
+
+.settings__sidebar {
+    background-color: rgb(195, 195, 195);
+    width: 25%;
+    padding: 30px 0;
+}
+
+.settings__sidebar>h3 {
+    text-transform: uppercase;
+}
+
+.settings__sidebar>hr {
+    border: none;
+    color: grey;
+    background-color: grey;
+    height: 1px;
+}
+
+.settings__item {
+    line-height: 28px;
+    margin: 5px 10px;
+    padding-left: 10px;
+}
+
+.settings__item:hover {
+    cursor: pointer;
+    background-color: rgba(161, 160, 160, 0.719);
+
+}
+
+.settings__item--active {
+    background-color: rgba(128, 128, 128, 0.705);
+}
+
+.settings__list {
+    background-color: white;
+    width: 65%;
+    padding: 30px 0;
+}
+
+.settings__close {
+    background-color: white;
+    padding: 30px 0;
+    width: 10%;
+}
+
+.settings__close>.MuiSvgIcon-root {
+    margin: 0;
+    background-color: rgba(195, 195, 195, 0.7);
+    color: white;
+}

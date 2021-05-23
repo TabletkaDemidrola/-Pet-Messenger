@@ -1,29 +1,27 @@
-.chatHeader {
+.chat-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0 18px;
+    padding: 18px 0;
     border-bottom: 2px solid rgb(220, 220, 220);
 }
 
-.chatHeader__left {
+.chat-header__left {
     margin-left: 20px;
 }
 
-.chatHeader__right {
+.chat-header__right {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex: 0.3;
     color: rgb(180, 180, 180);
 }
 
-.chatHeader__right>.MuiSvgIcon-root {
+.chat-header__right>.MuiSvgIcon-root {
     margin: auto 10px;
     cursor: pointer;
 }
 
-.chatHeader__search {
+.chat-header__search {
     display: flex;
     align-items: center;
     color: rgb(180, 180, 180);
@@ -34,7 +32,7 @@
     margin: auto 10px;
 }
 
-.chatHeader__search>input {
+.chat-header__search>input {
     flex: 1;
     background-color: transparent;
     outline-width: 0;/*толщина контура, та самая синяя обводка*/
