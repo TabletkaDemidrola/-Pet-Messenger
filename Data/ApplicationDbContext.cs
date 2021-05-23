@@ -15,6 +15,7 @@ namespace Messenger.Data
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Server> Servers { get; set; }
         public DbSet<PublicChat> PublicChats { get; set; }
+        public DbSet<PublicMessage> PublicMessages { get; set; }
 
         public ApplicationDbContext(
             DbContextOptions options,

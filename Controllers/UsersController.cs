@@ -22,19 +22,27 @@ namespace Messenger.Controllers
             _context = context;
         }
 
-        // GET: api/Users
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetUsers()
+        // ПРОВЕРИТЬ
+        // GET: api/UsersServer/ServerId
+        [Route("api/UsersServer/")]  
+        [HttpGet("{ServerId}")]
+        public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetUsersByServer(string ServerId)
         {
-            return await _context.Users.ToListAsync();
+            //var users = await _context.Servers.Where(s => s.ServerId == ServerId).Select(s => s.Users).ToListAsync();
+            var users = await _context.Users.Include(u => u.Servers.Where(s => s.ServerId == ServerId)).ToListAsync();
+            if (users == null)
+            {
+                return NotFound();
+            }
+            return users;
         }
 
-        // GET: api/Users/username
-        [HttpGet("{username}")]
-        public async Task<ActionResult<ApplicationUser>> GetUser(string username)
+        // GET: api/Users/Id
+        [HttpGet("{Id}")]
+        public async Task<ActionResult<ApplicationUser>> GetUser(string Id)
         {
             var user = await _context.Users
-                .Where(u => u.UserName == username)
+                .Where(u => u.Id == Id)
                 .FirstOrDefaultAsync();
 
             if (user == null)
@@ -87,7 +95,7 @@ namespace Messenger.Controllers
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<ApplicationUser>> DeleteUser(int id)
+        public async Task<ActionResult<ApplicationUser>> DeleteUser(string id)
         {
             var user = await _context.Users.FindAsync(id);
             if (user == null)
