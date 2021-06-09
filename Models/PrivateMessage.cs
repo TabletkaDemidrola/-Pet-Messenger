@@ -10,7 +10,7 @@ namespace Messenger.Models
     public class PrivateMessage
     {
         [Key]
-        public string MessageId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Text { get; set; }
         public DateTime CreatingTime { get; set; }
@@ -18,7 +18,7 @@ namespace Messenger.Models
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public ApplicationUser User { get; set; }
-        public string ChatId { get; set; }
+        public int ChatId { get; set; }
         [ForeignKey("ChatId")]
         public PrivateChat Chat { get; set; }
 

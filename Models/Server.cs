@@ -9,7 +9,7 @@ namespace Messenger.Models
     public class Server
     {
         [Key]
-        public string ServerId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         public DateTime CreatingTime = DateTime.Now;

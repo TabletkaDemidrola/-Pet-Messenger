@@ -10,12 +10,12 @@ namespace Messenger.Models
     public class PublicMessage
     {
         [Key]
-        public string MessageId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Text { get; set; }
         public DateTime CreatingTime { get; set; }
 
-        public string ChatId { get; set; }
+        public int ChatId { get; set; }
         [ForeignKey("ChatId")]
         public PublicChat Chat { get; set; }
 

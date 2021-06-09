@@ -35,10 +35,10 @@ namespace Messenger.Controllers
         // GET: api/UsersServer/ServerId
         [Route("api/UsersServer/")]  
         [HttpGet("{ServerId}")]
-        public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetUsersByServer(string ServerId)
+        public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetUsersByServer(int ServerId)
         {
             //var users = await _context.Servers.Where(s => s.ServerId == ServerId).Select(s => s.Users).ToListAsync();
-            var users = await _context.Users.Include(u => u.Servers.Where(s => s.ServerId == ServerId)).ToListAsync();
+            var users = await _context.Users.Include(u => u.Servers.Where(s => s.Id == ServerId)).ToListAsync();
             if (users == null)
             {
                 return NotFound();

@@ -10,7 +10,7 @@ namespace Messenger.Models
     public class PrivateChat
     {
         [Key]
-        public string ChatId { get; set; }
+        public int Id { get; set; }
         public string UserOneId { get; set; }
         [ForeignKey("UserOneId")]
         public ApplicationUser UserOne { get; set; }

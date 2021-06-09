@@ -20,12 +20,19 @@ namespace Messenger.Controllers
             _context = context;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Server>>> Get()
+        {
+            var servers = await _context.Servers.Include(s => s.Chats).ThenInclude(c => c.Messages).OrderBy(s => s.Name).ToListAsync();
+
+            return servers;
+        }
 
         // GET api/Server/id
         [HttpGet("{id}")]
-        public async Task<ActionResult<Server>> Get(string id)
+        public async Task<ActionResult<Server>> Get(int id)
         {
-            var server = await _context.Servers.Include(s => s.Chats).FirstOrDefaultAsync(s => s.ServerId == id);
+            var server = await _context.Servers.Include(s => s.Chats).FirstOrDefaultAsync(s => s.Id == id);
 
             if(server == null)
             {
@@ -44,15 +51,15 @@ namespace Messenger.Controllers
             _context.Servers.Add(server);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetServer", new { ServerId = server.ServerId }, server);
+            return CreatedAtAction("GetServer", new { ServerId = server.Id }, server);
         }
 
         // ПРОВЕРИТЬ
         // PUT api/Server/id
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(string id, Server server)
+        public async Task<ActionResult> Put(int id, Server server)
         {
-            if (id != server.ServerId)
+            if (id != server.Id)
             {
                 return BadRequest();
             }
@@ -96,9 +103,9 @@ namespace Messenger.Controllers
             return server;
         }
 
-        private bool ServerExists(string id)
+        private bool ServerExists(int id)
         {
-            return _context.Servers.Any(e => e.ServerId == id);
+            return _context.Servers.Any(e => e.Id == id);
         }
     }
 }

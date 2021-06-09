@@ -1,3 +1,5 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +13,7 @@ using Messenger.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 
 namespace Messenger
 {
@@ -38,9 +41,12 @@ namespace Messenger
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
-
-            services.AddControllersWithViews();
-            services.AddRazorPages();
+            
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options => 
+                {
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                });
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -89,6 +95,12 @@ namespace Messenger
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                DataInitializer.Init(dbContext);
+            }
         }
     }
 }

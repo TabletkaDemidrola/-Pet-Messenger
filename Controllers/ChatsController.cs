@@ -24,11 +24,11 @@ namespace Messenger.Controllers
 
         // GET api/Chats/{ServerId}
         [HttpGet("{ServerId}")]
-        public async Task<ActionResult<IEnumerable<PublicChat>>> GetChatsByServer(string ServerId)
+        public async Task<ActionResult<IEnumerable<PublicChat>>> GetChatsByServer(int ServerId)
         {
             var chats = await _context.PublicChats
                 .Include(c => c.Server)
-                .Where(s => s.ServerId == ServerId)
+                .Where(s => s.Id == ServerId)
                 .OrderBy(c => c.CreatingTime)
                 .ToListAsync();
 
@@ -47,14 +47,14 @@ namespace Messenger.Controllers
             _context.PublicChats.Add(chat);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetChat", new { ChatId = chat.ChatId }, chat);
+            return CreatedAtAction("GetChat", new { ChatId = chat.Id }, chat);
         }
 
         // PUT api/Chats/ChatId
         [HttpPut("{ChatId}")]
-        public async Task<IActionResult> Put(string ChatId, [FromBody] PublicChat chat)
+        public async Task<IActionResult> Put(int ChatId, [FromBody] PublicChat chat)
         {
-            if (ChatId != chat.ChatId)
+            if (ChatId != chat.Id)
             {
                 return BadRequest();
             }
@@ -98,9 +98,9 @@ namespace Messenger.Controllers
             return NoContent();
         }
 
-        private bool UserExists(string ChatId)
+        private bool UserExists(int ChatId)
         {
-            return _context.PublicChats.Any(c => c.ChatId == ChatId);
+            return _context.PublicChats.Any(c => c.Id == ChatId);
         }
     }
 }

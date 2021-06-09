@@ -24,11 +24,11 @@ namespace Messenger.Controllers
 
         // GET: api/PublicMessages/{ChatId}
         [HttpGet("{ChatId}")]
-        public async Task<ActionResult<IEnumerable<PublicMessage>>> GetMessagesByChat(string ChatId)
+        public async Task<ActionResult<IEnumerable<PublicMessage>>> GetMessagesByChat(int ChatId)
         {
             var messages = await _context.PublicMessages
                 .Include(m => m.Chat)
-                .Where(c => c.ChatId == ChatId)
+                .Where(c => c.Id == ChatId)
                 .OrderBy(m => m.CreatingTime)
                 .ToListAsync();
 
@@ -47,7 +47,7 @@ namespace Messenger.Controllers
             _context.PublicMessages.Add(message);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetMessage",new { MessageId = message.MessageId }, message);
+            return CreatedAtAction("GetMessage",new { MessageId = message.Id }, message);
         }
     }
 }
