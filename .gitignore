@@ -234,3 +234,4 @@ appsettings.json
 Migrations/
 ClientApp/node_modules
 ClientAppAuth/node_modules
+MailSetting.cs
