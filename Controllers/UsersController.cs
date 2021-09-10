@@ -33,34 +33,15 @@ namespace Messenger.Controllers
 
         // ПРОВЕРИТЬ
         // GET: api/UsersServer/ServerId
-        [Route("api/UsersServer/")]  
         [HttpGet("{ServerId}")]
         public async Task<ActionResult<IEnumerable<ApplicationUser>>> GetUsersByServer(int ServerId)
         {
-            //var users = await _context.Servers.Where(s => s.ServerId == ServerId).Select(s => s.Users).ToListAsync();
-            var users = await _context.Users.Include(u => u.Servers.Where(s => s.Id == ServerId)).ToListAsync();
-            if (users == null)
-            {
-                return NotFound();
-            }
-            return users;
+            var users = await _context.Servers.Where(s => s.Id == ServerId).Select(s => s.Users).FirstOrDefaultAsync();
+            var usersList = new List<ApplicationUser>(users);
+
+            return usersList;
         }
-
-        // GET: api/Users/Id
-        [HttpGet("{Id}")]
-        public async Task<ActionResult<ApplicationUser>> GetUser(string Id)
-        {
-            var user = await _context.Users
-                .Where(u => u.Id == Id)
-                .FirstOrDefaultAsync();
-
-            if (user == null)
-            {
-                return NotFound();
-            }
-
-            return user;
-        }
+        
 
         // PUT: api/Users/5
         [HttpPut("{id}")]

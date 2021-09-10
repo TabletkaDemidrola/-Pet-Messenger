@@ -15,7 +15,7 @@ namespace Messenger.Data
         {
             var skip = true;
 
-            if (!skip)
+            if (skip)
             {
                 return;
             }
